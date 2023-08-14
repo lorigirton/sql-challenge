@@ -20,10 +20,12 @@ CREATE TABLE "dept_emp" (
 CREATE TABLE "dept_manager" (
     "dept_no" VARCHAR(4)  NOT NULL ,
     "emp_no" VARCHAR(10)  NOT NULL ,
-    PRIMARY KEY (
-        "emp_no"
-    )
+    PRIMARY KEY ("emp_no"),
+	FOREIGN KEY ("dept_no") REFERENCES departments
 );
+
+SELECT * FROM dept_manager;
+--DROP TABLE public.dept_manager;
 
 CREATE TABLE "employees" (
     "emp_no" VARCHAR(10)  NOT NULL ,
@@ -37,7 +39,9 @@ CREATE TABLE "employees" (
         "emp_no"
     )
 );
+
 --DROP TABLE public.employees;
+
 CREATE TABLE "salaries" (
     "emp_no" VARCHAR(10)  NOT NULL ,
     "salary" INT  NOT NULL ,
@@ -45,6 +49,8 @@ CREATE TABLE "salaries" (
         "emp_no"
     )
 );
+
+SELECT * FROM salaries;
 
 CREATE TABLE "titles" (
     "title_id" VARCHAR(5)  NOT NULL ,
